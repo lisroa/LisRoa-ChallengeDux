@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { PrimeReactProvider } from 'primereact/api';
 import './globals.css';
+import { Suspense } from 'react';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -26,9 +27,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${geistSans.variable} ${geistMono.variable} h-screen w-screen overflow-hidden m-0 p-0`}>
+			<body className={`${geistSans.variable} ${geistMono.variable} m-0 h-screen w-screen overflow-hidden p-0`}>
 				<PrimeReactProvider>
-					<MainLayout>{children}</MainLayout>
+					<MainLayout>
+						<Suspense>{children}</Suspense>
+					</MainLayout>
 				</PrimeReactProvider>
 			</body>
 		</html>

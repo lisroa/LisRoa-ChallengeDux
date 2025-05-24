@@ -14,10 +14,10 @@ interface Props {
 
 export const UserFilters = ({ search, setSearch, status, setStatus }: Props) => {
 	return (
-		<div className='flex w-full flex-row gap-4 align-items-center justify-content-start'>
+		<div className='align-items-center justify-content-start flex w-full flex-row gap-4'>
 			<IconField iconPosition='left'>
 				<InputIcon className='pi pi-search'> </InputIcon>
-				<InputText value={search} onChange={e => setSearch(e.target.value)} placeholder='Buscar' />
+				<InputText value={search ?? ''} onChange={e => setSearch(e.target.value)} placeholder='Buscar' />
 			</IconField>
 
 			<Dropdown
